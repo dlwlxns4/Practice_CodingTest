@@ -1,43 +1,23 @@
 #include <string>
 #include <vector>
+#include <iostream>
+#include <map>
 
 using namespace std;
 
-string solution(string number, int k) {
-	string answer = "";
-	int num = 0;
-	bool check = false;
+int solution(vector<vector<string>> clothes) {
+	int answer = 1;
+	map<string, int> cloth;
 
-	for (int i = 0; i < number.size() - 1; i++)
+	for (int i = 0; i < clothes.size(); i++)
 	{
-		if (number[i] < number[i + 1])
-		{
-			number.erase(number.begin() + i);
-			num++;
-			i = -1;
-		}
-		if (num == k) {
-			check = true;
-			break;
-		}
-
-	}
-	while (num != k)
-	{
-		char min = number[0];
-		int index = 0;
-		for (int i = 1; i < number.size(); i++)
-		{
-			if (min > number[i])
-			{
-				min = number[i];
-				index = i;
-			}
-		}
-		number.erase(number.begin() + index);
-		num++;
+		cloth[clothes[i][1]] += 1;
 	}
 
+	for (auto it = cloth.begin(); it != cloth.end(); ++it)
+	{
+		answer *= (it->second + 1);
+	}
 
-	return answer = number;
+	return answer - 1;
 }
