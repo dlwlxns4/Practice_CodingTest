@@ -13,7 +13,7 @@ int main()
 	
 	cin >> ar;
 	list<char> strList(ar.begin(), ar.end());
-	list<char>::iterator cursor = strList.end();
+	int cursor = ar.size();
 
 
 	cin >> N;
@@ -28,26 +28,26 @@ int main()
 		switch (input)
 		{
 		case 'L':
-			if(cursor!=strList.begin())
+			if(cursor>0)
 				cursor--;
 			break;
 		case 'D':
-			if(cursor!=strList.end())
+			if(cursor < ar.size())
 				cursor++;
 			break;
 		case 'B':
-			if (cursor!=strList.begin())
+			if (cursor!=0)
 			{
 				cursor--;
-				cursor=strList.erase(cursor);
-				
+				strList.erase(strList.begin()+cursor);
+				cursor++;
 			}
 			break;
 		case 'P':
 			char inputChar;
 			cin >> inputChar;
 			
-			strList.insert(cursor, inputChar);
+			strList.insert(strList+cursor, inputChar);
 			break;
 
 		}

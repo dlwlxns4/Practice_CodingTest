@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <string>
 #include <list>
 
@@ -7,10 +6,14 @@ using namespace std;
 
 int main()
 {
+	std::ios_base::sync_with_stdio(false);
+	std::cout.tie(nullptr);
+	std::cin.tie(nullptr);
+
 	string ar;
 	int N;
 	char input;
-	
+
 	cin >> N;
 	for (int i = 0; i < N; i++)
 	{
@@ -20,8 +23,7 @@ int main()
 		list<char> outPutList;
 		list<char>::iterator cursor = outPutList.end();
 
-		list<char> strList(ar.begin(), ar.end());
-		for (auto iter = strList.begin(); iter != strList.end(); ++iter)
+		for (auto iter = ar.begin(); iter != ar.end(); ++iter)
 		{
 			switch (*iter)
 			{
