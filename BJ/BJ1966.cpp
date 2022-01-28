@@ -4,49 +4,22 @@
 
 using namespace std;
 
+int N, M;
+void DFS()
+{
+	for (int i = 0; i < M; ++i)
+	{
+		cout << i << " ";
+	}
+}
+
 int main()
 {
-	int N;
-	cin >> N;
+	cin >> N >> M;
 
 	for (int i = 0; i < N; ++i)
 	{
-		priority_queue<int> pq;
-		queue<pair<int, int>> q;
-		int num, index;
-		cin >> num >> index;
 
-		for (int j = 0; j < num; ++j)
-		{
-			int elem;
-			cin >> elem;
-			q.emplace(elem, j);
-			pq.push(elem);
-		}
-
-		int answer = 0;
-		while (!q.empty())
-		{
-			if (q.front().first == pq.top())
-			{
-				if (q.front().second == index)
-				{
-					answer++;
-					break;
-				}
-				else
-				{
-					q.pop();
-					pq.pop();
-					answer++;
-				}
-			}
-			else
-			{
-				q.push(q.front());
-				q.pop();
-			}
-		}
-		cout << answer << "\n";
 	}
+
 }
