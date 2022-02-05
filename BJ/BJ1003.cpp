@@ -13,13 +13,13 @@ int main() {
 
 	for (int i = 2; i < 41; ++i)
 	{
-		count[i] = { count[i - 1].first + count[i - 2].first, count[i - 1].second + count[i - 2].second };
+		count[i] = { count[i - 1].first + count[i - 2].first, count[i - 1].second+ count[i - 2].second };
 	}
 
 	for (int i = 0; i < N; ++i)
 	{
 		int elem;
 		cin >> elem;
-		cout << count[elem].first << " " << count[elem].second << "\n";
+		cout << count[elem].first <<" " << count[elem].second << "\n";
 	}
 }
