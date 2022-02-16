@@ -73,16 +73,16 @@ int main() {
 
 	sort(graph.begin(), graph.end());
 
-	int max = 0;
+	int maxDistance = 0;
 	for (int i = 0; i < graph.size(); ++i)
 	{
 		if (FindParent(parent, graph[i].node[0] - 1, graph[i].node[1] - 1) == false)
 		{
 			sum += graph[i].distance;
-			max = max(max,graph[i].distance);
+			maxDistance = max(maxDistance, graph[i].distance);
 			UnionParent(parent, graph[i].node[0] - 1, graph[i].node[1] - 1);
 		}
 	}
 
-	cout << sum-max;
+	cout << sum - maxDistance;
 }
